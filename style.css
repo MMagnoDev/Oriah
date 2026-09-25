@@ -210,20 +210,21 @@ img {
   width: auto;
   object-fit: contain;
   filter: brightness(0) invert(94%) sepia(8%) saturate(300%) hue-rotate(345deg);
-  opacity: 0.12;
+  opacity: 0.22;
   will-change: transform;
 }
 
 /* ==========================================================================
-   2. HIGHLIGHT METRICS BAR (No border lines)
+   2. HIGHLIGHT METRICS BAR
    ========================================================================== */
 .partners-bar {
   background-color: var(--color-dark);
   color: var(--color-light);
-  padding: 24px 0;
+  padding: 32px 0;
   border: none;
   position: relative;
   z-index: 4;
+  border-top: 1px solid var(--color-border-light);
 }
 
 .partners-container {
@@ -237,29 +238,75 @@ img {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 20px;
 }
 
 .metric-item {
   display: flex;
   align-items: center;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--color-light);
-  letter-spacing: 0.01em;
-  transition: transform 0.3s var(--ease-out-smooth), opacity 0.3s ease;
+  gap: 14px;
+  flex: 1;
+  min-width: 180px;
   cursor: default;
+  transition: transform 0.3s var(--ease-out-smooth);
 }
 
 .metric-item:hover {
-  transform: translateY(-1.5px);
-  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.metric-icon-wrap {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border: 1px solid var(--color-border-light);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(241, 240, 233, 0.05);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.metric-item:hover .metric-icon-wrap {
+  background-color: rgba(241, 240, 233, 0.1);
+  border-color: rgba(241, 240, 233, 0.35);
+}
+
+.metric-icon-wrap svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-light);
+  opacity: 0.75;
+}
+
+.metric-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.metric-value {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-light);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.metric-label {
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--color-light-subtle);
+  letter-spacing: 0.02em;
+  line-height: 1.3;
 }
 
 .metric-divider {
   width: 1px;
-  height: 18px;
+  height: 36px;
   background-color: var(--color-border-light);
+  flex-shrink: 0;
 }
 
 /* ==========================================================================
@@ -444,6 +491,75 @@ img {
   font-size: 0.88rem;
   color: var(--color-dark-subtle);
   line-height: 1.65;
+}
+
+/* Featured Card — Acompanhamento de Projetos */
+.service-card--featured {
+  background: var(--color-dark);
+  border-color: var(--color-dark);
+}
+
+.service-card--featured .service-card-title {
+  color: var(--color-light);
+}
+
+.service-card--featured .service-card-text {
+  color: var(--color-light-subtle);
+}
+
+.service-card--featured:hover {
+  border-color: var(--color-slate-blue);
+  box-shadow: 0 16px 40px rgba(21, 37, 54, 0.3);
+}
+
+.service-card-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-dark);
+  background-color: var(--color-light);
+  border-radius: 3px;
+  padding: 4px 10px;
+  margin-bottom: 18px;
+}
+
+.service-card-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-dark);
+  border: 1px solid var(--color-border-dark);
+  border-radius: 3px;
+  padding: 3px 9px;
+  margin-bottom: 18px;
+}
+
+.service-card-list {
+  list-style: none;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.service-card-list li {
+  font-size: 0.83rem;
+  color: rgba(241, 240, 233, 0.82);
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.service-card-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: rgba(241, 240, 233, 0.45);
+  font-size: 0.75rem;
 }
 
 /* ==========================================================================
@@ -906,18 +1022,34 @@ img {
   }
 
   .hero-bg-logo-wrapper {
-    right: -25%;
-    max-height: 380px;
-    opacity: 0.09;
+    right: -5%;
+    max-height: none;
+    height: 115%;
+    opacity: 0.18;
   }
 
   .metrics-grid {
-    justify-content: flex-start;
-    gap: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
 
   .metric-divider {
     display: none;
+  }
+
+  .metric-item {
+    min-width: unset;
+    flex: unset;
+    background-color: rgba(241, 240, 233, 0.04);
+    border: 1px solid var(--color-border-light);
+    border-radius: 8px;
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .metric-item:hover {
+    background-color: rgba(241, 240, 233, 0.07);
   }
 
   .pain-cards-grid {
@@ -1007,17 +1139,24 @@ img {
   }
 
   .metrics-grid {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 18px;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
   }
 
   .hero-bg-logo-wrapper {
     right: 50%;
     transform: translate(50%, -50%);
     top: 50%;
-    max-height: 320px;
-    opacity: 0.07;
+    height: 165%;
+    max-height: none;
+    width: 130%;
+    opacity: 0.22;
+  }
+
+  .hero-bg-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   .section-title {
