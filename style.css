@@ -234,7 +234,7 @@ img {
   width: auto;
   object-fit: contain;
   filter: brightness(0) invert(94%) sepia(8%) saturate(300%) hue-rotate(345deg);
-  opacity: 0.22;
+  opacity: 0.07;
   will-change: transform;
 }
 
@@ -1055,7 +1055,7 @@ img {
     right: -5%;
     max-height: none;
     height: 115%;
-    opacity: 0.18;
+    opacity: 0.06;
   }
 
   .metrics-grid {
@@ -1184,7 +1184,7 @@ img {
     height: 165%;
     max-height: none;
     width: 130%;
-    opacity: 0.22;
+    opacity: 0.07;
   }
 
   .hero-bg-logo {
